@@ -9,6 +9,7 @@ main :: proc() {
 	rl.InitWindow(800, 600, "Space shooter")
 
 	lasers := [dynamic]Laser{}
+	enemies := [dynamic]Enemy{}
 
 	lastPositionUpdate := 0.0
 	delayBeforeMoving := 0.003
@@ -19,12 +20,20 @@ main :: proc() {
 	shipTexture := rl.LoadTexture("assets/ship.png")
 	imageBackground := rl.LoadTexture("assets/bg.png")
 	laserTexture := rl.LoadTexture("assets/laser.png")
+	enemyTexture := rl.LoadTexture("assets/enemy.png")
 	shipPosition: rl.Vector2 = {400 - 48 / 2, 500 + 48 / 2}
+	framesCounter := 0
+	currentFrame := 0
+	currentAnimationFrame := 0
+	sourceRec: rl.Rectangle = {0, 0, f32(enemyTexture.width / 6), f32(enemyTexture.height)}
 	rl.SetTargetFPS(144)
 
 	for !rl.WindowShouldClose() {
-		fmt.println(len(lasers))
+		framesCounter += 1
 		rl.BeginDrawing()
+
+		for i in 1 ..= 10 {
+		}
 
 		rl.DrawTexturePro(
 			imageBackground,
@@ -34,6 +43,32 @@ main :: proc() {
 			0,
 			rl.WHITE,
 		)
+		rl.DrawFPS(10, 10)
+
+		// drawAnimatedEnemy(&Enemy{texture = enemyTexture, position = {0, 0}})
+
+		// currentAnimationFrame * enemyTexture.width / 6
+
+		if (framesCounter >= (144 / 8)) {
+			framesCounter = 0
+			currentAnimationFrame += 1
+			currentFrame += 1
+
+			if (currentAnimationFrame > 5) {currentAnimationFrame = 0}
+
+			sourceRec.x = f32(currentAnimationFrame * int(enemyTexture.width / 6))
+		}
+
+
+		rl.DrawTexturePro(
+			enemyTexture,
+			sourceRec,
+			{400, 50, f32(enemyTexture.width / 6) * 4, f32(enemyTexture.height) * 4},
+			{0, 0},
+			0,
+			rl.WHITE,
+		)
+
 
 		rl.DrawTexturePro(
 			shipTexture,
@@ -106,4 +141,35 @@ updateLaser :: proc(laser: ^Laser) {
 Laser :: struct {
 	texture:  rl.Texture2D,
 	position: rl.Vector2,
+}
+
+Enemy :: struct {
+	texture:               rl.Texture2D,
+	position:              rl.Vector2,
+	lastUpdateTime:        i32,
+	currentAnimationFrame: u8,
+}
+
+drawAnimatedEnemy :: proc(enemy: ^Enemy) {
+
+	// enemy.position.x = currentAnimationFrame * enemy.texture.width / 6
+
+	//         if (framesCounter >= (144/8))
+	//       {
+	//           framesCounter = 0;
+	//           currentFrame++;
+
+	//           if (currentFrame > 5) currentFrame = 0;
+
+	//           frameRec.x = (float)currentFrame*(float)scarfy.width/6;
+	//       }
+
+	// rl.DrawTexturePro(
+	// 	enemyTexture,
+	// 	{0, 0, f32(enemyTexture.width / 6), f32(enemyTexture.height)},
+	// 	{400, 200, f32(enemyTexture.width / 6) * 4, f32(enemyTexture.height) * 4},
+	// 	{0, 0},
+	// 	0,
+	// 	rl.WHITE,
+	// )
 }
