@@ -7,6 +7,7 @@ TEXTURE_SIZE :: 16
 
 main :: proc() {
 	rl.InitWindow(800, 600, "Space shooter")
+	rl.InitAudioDevice()
 
 	lasers := [dynamic]Laser{}
 	enemies := [dynamic]Enemy{}
@@ -26,6 +27,11 @@ main :: proc() {
 	currentFrame := 0
 	currentAnimationFrame := 0
 	sourceRec: rl.Rectangle = {0, 0, f32(enemyTexture.width / 6), f32(enemyTexture.height)}
+
+	// Sound loading
+	laserSound := rl.LoadSound("assets/laser.wav")
+	defer rl.UnloadSound(laserSound)
+
 	rl.SetTargetFPS(144)
 
 	for !rl.WindowShouldClose() {
@@ -45,9 +51,6 @@ main :: proc() {
 		)
 		rl.DrawFPS(10, 10)
 
-		// drawAnimatedEnemy(&Enemy{texture = enemyTexture, position = {0, 0}})
-
-		// currentAnimationFrame * enemyTexture.width / 6
 
 		if (framesCounter >= (144 / 8)) {
 			framesCounter = 0
@@ -98,6 +101,7 @@ main :: proc() {
 				}
 				append(&lasers, laser)
 				lastlaserShootTime = rl.GetTime()
+				rl.PlaySound(laserSound)
 			}
 		}
 
