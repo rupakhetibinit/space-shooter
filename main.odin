@@ -11,6 +11,7 @@ main :: proc() {
 
 	lasers := [dynamic]Laser{}
 	enemies := [dynamic]Enemy{}
+	explosions := [dynamic]Explosion{}
 
 	lastPositionUpdate := 0.0
 	delayBeforeMoving := 0.003
@@ -22,6 +23,7 @@ main :: proc() {
 	imageBackground := rl.LoadTexture("assets/bg.png")
 	laserTexture := rl.LoadTexture("assets/laser.png")
 	enemyTexture := rl.LoadTexture("assets/enemy.png")
+	explosionTexture := rl.LoadTexture("assets/explosion.png")
 	shipPosition: rl.Vector2 = {400 - 48 / 2, 500 + 48 / 2}
 	framesCounter := 0
 	currentFrame := 0
@@ -31,6 +33,8 @@ main :: proc() {
 	// Sound loading
 	laserSound := rl.LoadSound("assets/laser.wav")
 	defer rl.UnloadSound(laserSound)
+	explosionSound := rl.LoadSound("assets/explosion.wav")
+	defer rl.UnloadSound(explosionSound)
 
 	rl.SetTargetFPS(144)
 
@@ -90,6 +94,39 @@ main :: proc() {
 			}
 		}
 
+		for &laser in lasers {
+			if (laser.hit_enemy) {
+				continue
+			}
+			if rl.CheckCollisionRecs(
+				{
+					laser.position.x,
+					laser.position.y,
+					f32(laser.texture.width),
+					f32(laser.texture.height),
+				},
+				{400, 50, f32(enemyTexture.width / 6) * 4, f32(enemyTexture.height) * 4},
+			) {
+				explosion := Explosion {
+					texture  = explosionTexture,
+					position = {400 - 20, 50 - f32(explosionTexture.height / 2)},
+				}
+				laser.hit_enemy = true
+				append(&explosions, explosion)
+				rl.PlaySound(explosionSound)
+			}
+		}
+
+		for &explosion, i in explosions {
+			drawExplosion(&explosion)
+			updateExplosion(&explosion)
+
+			if (explosion.currentAnimationFrame > 3) {
+				unordered_remove(&explosions, i)
+			}
+
+		}
+
 
 		rl.EndDrawing()
 
@@ -143,8 +180,9 @@ updateLaser :: proc(laser: ^Laser) {
 }
 
 Laser :: struct {
-	texture:  rl.Texture2D,
-	position: rl.Vector2,
+	texture:   rl.Texture2D,
+	position:  rl.Vector2,
+	hit_enemy: bool,
 }
 
 Enemy :: struct {
@@ -176,4 +214,42 @@ drawAnimatedEnemy :: proc(enemy: ^Enemy) {
 	// 	0,
 	// 	rl.WHITE,
 	// )
+}
+
+Explosion :: struct {
+	position:              rl.Vector2,
+	texture:               rl.Texture2D,
+	currentAnimationFrame: u8,
+	animationTimer:        f32,
+}
+
+drawExplosion :: proc(explosion: ^Explosion) {
+	sourceRec: rl.Rectangle = {
+		f32(int(explosion.currentAnimationFrame) * int(explosion.texture.width / 6)),
+		0,
+		f32(explosion.texture.width / 6),
+		f32(explosion.texture.height),
+	}
+
+	rl.DrawTexturePro(
+		explosion.texture,
+		sourceRec,
+		rl.Rectangle {
+			explosion.position.x,
+			explosion.position.y,
+			f32(explosion.texture.width / 6) * 6,
+			f32(explosion.texture.height) * 6,
+		},
+		{0, 0},
+		0,
+		rl.WHITE,
+	)
+}
+
+updateExplosion :: proc(explosion: ^Explosion) {
+	explosion.animationTimer += rl.GetFrameTime()
+	if (explosion.animationTimer > 0.1) {
+		explosion.animationTimer = 0
+		explosion.currentAnimationFrame += 1
+	}
 }
