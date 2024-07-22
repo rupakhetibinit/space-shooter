@@ -25,26 +25,27 @@ main :: proc() {
 	enemyTexture := rl.LoadTexture("assets/enemy.png")
 	explosionTexture := rl.LoadTexture("assets/explosion.png")
 	shipPosition: rl.Vector2 = {400 - 48 / 2, 500 + 48 / 2}
-	framesCounter := 0
-	currentFrame := 0
-	currentAnimationFrame := 0
 	sourceRec: rl.Rectangle = {0, 0, f32(enemyTexture.width / 6), f32(enemyTexture.height)}
 
+	enemy := Enemy {
+		texture               = enemyTexture,
+		position              = {400, 50},
+		animationTimer        = 0,
+		currentAnimationFrame = 0,
+	}
 	// Sound loading
 	laserSound := rl.LoadSound("assets/laser.wav")
 	defer rl.UnloadSound(laserSound)
 	explosionSound := rl.LoadSound("assets/explosion.wav")
 	defer rl.UnloadSound(explosionSound)
+	fmt.println(1 / f32(5))
 
 	rl.SetTargetFPS(144)
 
 	for !rl.WindowShouldClose() {
-		framesCounter += 1
 		rl.BeginDrawing()
 
-		for i in 1 ..= 10 {
-		}
-
+		// Draw BG first
 		rl.DrawTexturePro(
 			imageBackground,
 			{0, 0, f32(imageBackground.width), f32(imageBackground.height)},
@@ -53,30 +54,15 @@ main :: proc() {
 			0,
 			rl.WHITE,
 		)
+
+		// Draw FPS
 		rl.DrawFPS(10, 10)
 
+		// Draw Enemy
+		drawAnimatedEnemy(&enemy)
+		updateAnimatedEnemy(&enemy)
 
-		if (framesCounter >= (144 / 8)) {
-			framesCounter = 0
-			currentAnimationFrame += 1
-			currentFrame += 1
-
-			if (currentAnimationFrame > 5) {currentAnimationFrame = 0}
-
-			sourceRec.x = f32(currentAnimationFrame * int(enemyTexture.width / 6))
-		}
-
-
-		rl.DrawTexturePro(
-			enemyTexture,
-			sourceRec,
-			{400, 50, f32(enemyTexture.width / 6) * 4, f32(enemyTexture.height) * 4},
-			{0, 0},
-			0,
-			rl.WHITE,
-		)
-
-
+		// Draw Ship
 		rl.DrawTexturePro(
 			shipTexture,
 			{16, 0, 16, 16},
@@ -127,7 +113,6 @@ main :: proc() {
 
 		}
 
-
 		rl.EndDrawing()
 
 		if (rl.IsKeyDown(rl.KeyboardKey.SPACE)) {
@@ -155,7 +140,6 @@ main :: proc() {
 		if (rl.IsKeyDown(rl.KeyboardKey.ESCAPE)) {
 			rl.CloseWindow()
 		}
-
 
 		if rl.IsKeyDown(rl.KeyboardKey.RIGHT) {
 			if rl.GetTime() - lastPositionUpdate > delayBeforeMoving {
@@ -189,31 +173,39 @@ Enemy :: struct {
 	texture:               rl.Texture2D,
 	position:              rl.Vector2,
 	lastUpdateTime:        i32,
+	animationTimer:        f32,
 	currentAnimationFrame: u8,
 }
 
 drawAnimatedEnemy :: proc(enemy: ^Enemy) {
+	sourceRec: rl.Rectangle = {
+		f32(int(enemy.texture.width / 6) * int(enemy.currentAnimationFrame)),
+		0,
+		f32(enemy.texture.width / 6),
+		f32(enemy.texture.height),
+	}
 
-	// enemy.position.x = currentAnimationFrame * enemy.texture.width / 6
+	rl.DrawTexturePro(
+		enemy.texture,
+		sourceRec,
+		{
+			enemy.position.x,
+			enemy.position.y,
+			f32(enemy.texture.width / 6) * 4,
+			f32(enemy.texture.height) * 4,
+		},
+		{0, 0},
+		0,
+		rl.WHITE,
+	)
+}
 
-	//         if (framesCounter >= (144/8))
-	//       {
-	//           framesCounter = 0;
-	//           currentFrame++;
-
-	//           if (currentFrame > 5) currentFrame = 0;
-
-	//           frameRec.x = (float)currentFrame*(float)scarfy.width/6;
-	//       }
-
-	// rl.DrawTexturePro(
-	// 	enemyTexture,
-	// 	{0, 0, f32(enemyTexture.width / 6), f32(enemyTexture.height)},
-	// 	{400, 200, f32(enemyTexture.width / 6) * 4, f32(enemyTexture.height) * 4},
-	// 	{0, 0},
-	// 	0,
-	// 	rl.WHITE,
-	// )
+updateAnimatedEnemy :: proc(enemy: ^Enemy) {
+	enemy.animationTimer += rl.GetFrameTime()
+	if (enemy.animationTimer > f32(1 / 8.0)) {
+		enemy.animationTimer = 0
+		enemy.currentAnimationFrame += 1
+	}
 }
 
 Explosion :: struct {
@@ -251,5 +243,8 @@ updateExplosion :: proc(explosion: ^Explosion) {
 	if (explosion.animationTimer > 0.1) {
 		explosion.animationTimer = 0
 		explosion.currentAnimationFrame += 1
+		if (explosion.currentAnimationFrame > 6) {
+			explosion.currentAnimationFrame = 0
+		}
 	}
 }
