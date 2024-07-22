@@ -38,7 +38,6 @@ main :: proc() {
 	defer rl.UnloadSound(laserSound)
 	explosionSound := rl.LoadSound("assets/explosion.wav")
 	defer rl.UnloadSound(explosionSound)
-	fmt.println(1 / f32(5))
 
 	rl.SetTargetFPS(144)
 
