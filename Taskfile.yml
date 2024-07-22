@@ -1,0 +1,18 @@
+version: '3'
+
+interval: 100ms
+
+tasks:
+  build:
+    cmds:
+      - odin build . -o:speed
+    silent: true
+
+  run:
+    deps: [build]
+    cmds:
+      - space-shooter.exe
+    watch: true
+    sources:
+      - main.odin
+    silent: true
