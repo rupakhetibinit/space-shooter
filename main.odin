@@ -1,5 +1,6 @@
 package main
 import "core:fmt"
+import "core:math/rand"
 import rl "vendor:raylib"
 
 TEXTURE_SIZE :: 16
@@ -27,12 +28,7 @@ main :: proc() {
 	shipPosition: rl.Vector2 = {400 - 48 / 2, 500 + 48 / 2}
 	sourceRec: rl.Rectangle = {0, 0, f32(enemyTexture.width / 6), f32(enemyTexture.height)}
 
-	enemy := Enemy {
-		texture               = enemyTexture,
-		position              = {400, 50},
-		animationTimer        = 0,
-		currentAnimationFrame = 0,
-	}
+
 	// Sound loading
 	laserSound := rl.LoadSound("assets/laser.wav")
 	defer rl.UnloadSound(laserSound)
@@ -40,6 +36,20 @@ main :: proc() {
 	defer rl.UnloadSound(explosionSound)
 
 	rl.SetTargetFPS(144)
+
+	for i in 1 ..= 6 {
+		append(
+			&enemies,
+			Enemy {
+				texture = enemyTexture,
+				position = {f32(i) * 100, 50},
+				animationTimer = 0,
+				currentAnimationFrame = u8(rand.float32() * 8),
+				lastLaserTime = 0,
+			},
+		)
+
+	}
 
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
@@ -57,9 +67,25 @@ main :: proc() {
 		// Draw FPS
 		rl.DrawFPS(10, 10)
 
-		// Draw Enemy
-		drawAnimatedEnemy(&enemy)
-		updateAnimatedEnemy(&enemy)
+		for &enemy in enemies {
+			enemy.lastLaserTime += rl.GetFrameTime()
+			// Draw Enemy
+			if enemy.lastLaserTime > (1.5 + rand.float32() * 10) {
+				enemy.lastLaserTime = 0
+				append(
+					&lasers,
+					Laser {
+						hit_enemy = false,
+						position = {enemy.position.x, enemy.position.y + 100},
+						texture = laserTexture,
+						velocity = {0, 1.6},
+					},
+				)
+			}
+			drawAnimatedEnemy(&enemy)
+			updateAnimatedEnemy(&enemy)
+		}
+
 
 		// Draw Ship
 		rl.DrawTexturePro(
@@ -74,7 +100,7 @@ main :: proc() {
 		for &laser, i in lasers {
 			updateLaser(&laser)
 			drawLaser(laser)
-			if (laser.position.y < 0) {
+			if (laser.position.y < 0 || laser.position.y > f32(rl.GetScreenHeight())) {
 				unordered_remove(&lasers, i)
 			}
 		}
@@ -83,22 +109,29 @@ main :: proc() {
 			if (laser.hit_enemy) {
 				continue
 			}
-			if rl.CheckCollisionRecs(
-				{
-					laser.position.x,
-					laser.position.y,
-					f32(laser.texture.width),
-					f32(laser.texture.height),
-				},
-				{400, 50, f32(enemyTexture.width / 6) * 4, f32(enemyTexture.height) * 4},
-			) {
-				explosion := Explosion {
-					texture  = explosionTexture,
-					position = {400 - 20, 50 - f32(explosionTexture.height / 2)},
+			for enemy in enemies {
+				if rl.CheckCollisionRecs(
+					{
+						laser.position.x,
+						laser.position.y,
+						f32(laser.texture.width),
+						f32(laser.texture.height),
+					},
+					{
+						enemy.position.x,
+						enemy.position.y,
+						f32(enemyTexture.width / 6) * 4,
+						f32(enemyTexture.height) * 4,
+					},
+				) {
+					explosion := Explosion {
+						texture  = explosionTexture,
+						position = {enemy.position.x - 20, 50 - f32(explosionTexture.height / 2)},
+					}
+					laser.hit_enemy = true
+					append(&explosions, explosion)
+					rl.PlaySound(explosionSound)
 				}
-				laser.hit_enemy = true
-				append(&explosions, explosion)
-				rl.PlaySound(explosionSound)
 			}
 		}
 
@@ -119,6 +152,7 @@ main :: proc() {
 				laser := Laser {
 					position = {shipPosition.x + 8, shipPosition.y - 24},
 					texture  = laserTexture,
+					velocity = {0, -1.6},
 				}
 				append(&lasers, laser)
 				lastlaserShootTime = rl.GetTime()
@@ -159,13 +193,14 @@ drawLaser :: proc(laser: Laser) {
 }
 
 updateLaser :: proc(laser: ^Laser) {
-	laser.position.y -= 1.6
+	laser.position.y += laser.velocity.y
 }
 
 Laser :: struct {
 	texture:   rl.Texture2D,
 	position:  rl.Vector2,
 	hit_enemy: bool,
+	velocity:  rl.Vector2,
 }
 
 Enemy :: struct {
@@ -174,6 +209,7 @@ Enemy :: struct {
 	lastUpdateTime:        i32,
 	animationTimer:        f32,
 	currentAnimationFrame: u8,
+	lastLaserTime:         f32,
 }
 
 drawAnimatedEnemy :: proc(enemy: ^Enemy) {
