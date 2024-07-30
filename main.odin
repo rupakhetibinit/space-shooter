@@ -46,6 +46,7 @@ main :: proc() {
 				animationTimer = 0,
 				currentAnimationFrame = u8(rand.float32() * 8),
 				lastLaserTime = 0,
+				lives = 1,
 			},
 		)
 
@@ -109,7 +110,7 @@ main :: proc() {
 			if (laser.hit_enemy) {
 				continue
 			}
-			for enemy in enemies {
+			for &enemy, i in enemies {
 				if rl.CheckCollisionRecs(
 					{
 						laser.position.x,
@@ -131,6 +132,10 @@ main :: proc() {
 					laser.hit_enemy = true
 					append(&explosions, explosion)
 					rl.PlaySound(explosionSound)
+					enemy.lives -= 1
+					if (enemy.lives == 0) {
+						unordered_remove(&enemies, i)
+					}
 				}
 			}
 		}
@@ -210,6 +215,7 @@ Enemy :: struct {
 	animationTimer:        f32,
 	currentAnimationFrame: u8,
 	lastLaserTime:         f32,
+	lives:                 u8,
 }
 
 drawAnimatedEnemy :: proc(enemy: ^Enemy) {
