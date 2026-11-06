@@ -3,6 +3,7 @@ package main
 
 import "core:mem"
 import "base:runtime"
+import rl "vendor:raylib"
 
 // Emscripten owns the shared WebAssembly heap. Keep Odin allocations on it too.
 foreign import em "env.o"
@@ -57,6 +58,7 @@ web_start :: proc "c" () {
     context.temp_allocator = mem.arena_allocator(&web_temp)
     web_context = context
     init_game()
+    when CREATOR_BUILD { editor_open = true }
 }
 
 @(export)
@@ -111,6 +113,7 @@ when #config(WEB_QA, false) {
 
 }
 
+when CREATOR_BUILD {
 web_campaign_input: [MAX_CONFIG_BYTES]byte
 @(export)
 web_campaign_buffer :: proc "c" () -> rawptr { return raw_data(web_campaign_input[:]) }
@@ -133,6 +136,8 @@ web_campaign_export :: proc "c" () { context=web_context; editor_save(true) }
 web_campaign_save :: proc "c" () { context=web_context; editor_save(false) }
 @(export)
 web_editor_open :: proc "c" () -> i32 { if editor_open { return 1 }; return 0 }
+}
+
 @(export)
 web_sector_count :: proc "c" () -> i32 { return i32(len(campaign.sectors)) }
 @(export)
@@ -159,4 +164,21 @@ web_enemy_warning :: proc "c" (index: i32) -> i32 {
     if index < 0 || int(index) >= len(enemies) { return 0 }
     if enemies[int(index)].aim_locked { return 1 }
     return 0
+}
+
+@(export)
+web_set_paused :: proc "c" (value: i32) {
+    paused = value != 0
+}
+
+@(export)
+web_restart :: proc "c" () {
+    context = web_context
+    reset_round()
+}
+
+@(export)
+web_set_muted :: proc "c" (value: i32) {
+    context = web_context
+    if value != 0 { rl.SetMasterVolume(0) } else { rl.SetMasterVolume(1) }
 }

@@ -63,8 +63,11 @@ jobs:
           ./validate-levels.ps1
           ./validate-levels.ps1 -Path examples/starter-campaign.json
 
-      - name: Build the production web game
+      - name: Build player and creator web routes
         run: ./build-web.ps1
+
+      - name: Verify player and creator build separation
+        run: node tools/verify-web.cjs
 
       - name: Package only the public site files
         run: ./package-web.ps1

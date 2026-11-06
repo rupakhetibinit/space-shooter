@@ -5,6 +5,7 @@ import "core:math"
 import rl "vendor:raylib"
 
 HEADLESS :: #config(HEADLESS, false)
+CREATOR_BUILD :: #config(CREATOR_BUILD, ODIN_OS != .JS)
 Enemy_Kind :: enum { Scout, Weaver, Diver, Tank, Spitter, Boss }
 Phase :: enum { Briefing, Playing, Intermission, Defeat, Victory }
 Controls :: struct { move: rl.Vector2, fire, pause, restart: bool }
@@ -232,8 +233,10 @@ step_game :: proc(dt: f32, input: Controls) {
 }
 
 update_game :: proc() {
-    if !editor_name_edit && rl.IsKeyPressed(.E) { toggle_editor() }
-    if editor_open { update_editor(); draw_editor(); return }
+    when CREATOR_BUILD {
+        if !editor_name_edit && rl.IsKeyPressed(.E) { toggle_editor() }
+        if editor_open { update_editor(); draw_editor(); return }
+    }
     input: Controls
     if rl.IsKeyDown(.LEFT) || rl.IsKeyDown(.A) { input.move.x -= 1 }
     if rl.IsKeyDown(.RIGHT) || rl.IsKeyDown(.D) { input.move.x += 1 }
@@ -352,7 +355,11 @@ draw_game :: proc() {
         if i < shields { c = {109,222,233,255} }
         rl.DrawRectangle(i32(73+i*17),576,12,13,c)
     }
-    rl.DrawText("WASD move  SPACE fire  P pause  R reset  E editor",268,578,12,{147,169,194,255})
+    when CREATOR_BUILD {
+        rl.DrawText("WASD move  SPACE fire  P pause  R reset  E editor",268,578,12,{147,169,194,255})
+    } else {
+        rl.DrawText("WASD move   SPACE fire   P pause   R restart",295,578,12,{147,169,194,255})
+    }
     pending := 0
     arrival: f32 = 30
     for e in enemies { if e.delay > 0 { pending += 1; arrival=min(arrival,e.delay) } }
