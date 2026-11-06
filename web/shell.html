@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>Space Shooter</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: system-ui, sans-serif;
+      background: #10131e;
+      color: #e9edff
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center
+    }
+
+    main {
+      width: min(96vw, 960px, calc((100svh - 180px)*4/3));
+      text-align: center;
+      padding: 24px 0
+    }
+
+    h1 {
+      font-size: 24px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 8px
+    }
+
+    p {
+      color: #acb6d1;
+      font-size: 14px
+    }
+
+    .stage {
+      position: relative;
+      background: #080b13;
+      border: 1px solid #343d57;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px #0006
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      outline: none;
+      image-rendering: pixelated
+    }
+
+    #start {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      background: #080b13d9;
+      gap: 14px
+    }
+
+    button {
+      font: inherit;
+      background: #d3f47b;
+      color: #142016;
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 22px;
+      cursor: pointer
+    }
+
+    button:disabled {
+      opacity: .5;
+      cursor: wait
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px
+    }
+
+    footer button {
+      background: #29334c;
+      color: #e9edff;
+      padding: 8px 14px
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Space Shooter</h1>
+    <p>OUTER RIM / 12 sectors. Build your own missions.</p>
+    <div class="stage"><canvas id="canvas" width="800" height="600" tabindex="0"
+        aria-label="Space shooter game. Arrow keys or WASD to move, Space to fire, P to pause, R to restart, E for the level editor."></canvas>
+      <div id="start"><span id="status" role="status">Loading game…</span><button id="play" disabled>Play</button></div>
+    </div>
+    <footer>
+      <p>WASD / Arrows to move · Space to fire · P to pause · R restart · E editor</p><button
+        id="fullscreen">Fullscreen</button>
+    </footer>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <button id="editor-button" disabled>Level editor (E)</button><button id="import-button" disabled>Import
+        campaign</button><button id="export-button" disabled>Export JSON</button>
+    </div><input id="campaign-file" type="file" accept=".json,application/json" hidden>
+    <script src="odin.js"></script>
+    <script>
+      const canvas = document.getElementById('canvas'), status = document.getElementById('status'), play = document.getElementById('play');
+      const memory = new odin.WasmMemoryInterface(); memory.setIntSize(4);
+      const odinImports = odin.setupDefaultImports(memory);
+      let game, running = false;
+      const campaignKey = 'space-shooter.campaign.v1';
+      function campaignStore(text) { try { localStorage.setItem(campaignKey, text); return 1 } catch (e) { console.warn('Campaign storage unavailable', e); return 0 } }
+      function campaignDownload(text) { const url = URL.createObjectURL(new Blob([text], { type: 'application/json' })); const a = document.createElement('a'); a.href = url; a.download = 'campaign.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000) }
+      function importCampaign(text) { const data = new TextEncoder().encode(text); if (data.length > 262144) return game.web_campaign_import(-1); new Uint8Array(memory.memory.buffer, game.web_campaign_buffer(), data.length).set(data); return game.web_campaign_import(data.length) }
+      function fail(error) { running = false; status.textContent = 'Could not start the game. Reload to try again.'; document.getElementById('start').style.display = 'grid'; play.disabled = true; console.error(error) }
+      var Module = {
+        canvas,
+        print: console.log,
+        printErr: console.error,
+        onAbort: fail,
+        instantiateWasm(imports, done) {
+          WebAssembly.instantiateStreaming(fetch('index.wasm'), { ...odinImports, ...imports })
+            .then(({ instance }) => { game = instance.exports; memory.setExports(game); memory.setMemory(game.memory); done(instance) })
+            .catch(fail);
+          return {};
+        },
+        onRuntimeInitialized() {
+          game._start(); status.textContent = 'Ready when you are.'; play.disabled = false;
+          play.addEventListener('click', () => {
+            try {
+              game.web_start();
+              try { const saved = localStorage.getItem(campaignKey); if (saved) { if (importCampaign(saved)) game.web_campaign_play(); } } catch (e) { console.warn('Could not restore campaign', e) }
+              for (const id of ['editor-button', 'import-button', 'export-button']) document.getElementById(id).disabled = false;
+              document.getElementById('start').style.display = 'none'; canvas.focus({ preventScroll: true }); running = true;
+              function frame() { if (!running) return; try { game.web_frame(); requestAnimationFrame(frame) } catch (e) { fail(e) } }
+              requestAnimationFrame(frame);
+            } catch (e) { fail(e) }
+          }, { once: true });
+        }
+      };
+      canvas.addEventListener('pointerdown', () => canvas.focus({ preventScroll: true }));
+      canvas.addEventListener('keydown', event => { if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Space'].includes(event.code)) event.preventDefault() });
+      document.getElementById('editor-button').addEventListener('click', () => { game.web_editor_toggle(); canvas.focus({ preventScroll: true }) });
+      document.getElementById('import-button').addEventListener('click', () => document.getElementById('campaign-file').click());
+      document.getElementById('export-button').addEventListener('click', () => game.web_campaign_export());
+      document.getElementById('campaign-file').addEventListener('change', async event => {
+        const file = event.target.files[0]; if (!file) return;
+        if (file.size > 262144) game.web_campaign_import(-1); else importCampaign(await file.text());
+        event.target.value = ''; canvas.focus({ preventScroll: true });
+      });
+      document.getElementById('fullscreen').addEventListener('click', () => canvas.requestFullscreen().catch(console.error));
+    </script>
+    {{{ SCRIPT }}}
+  </main>
+</body>
+
+</html>

@@ -14,5 +14,13 @@ tasks:
       - space-shooter.exe
     watch: true
     sources:
-      - main.odin
+      - "**/*.odin"
+      - assets/campaign.json
     silent: true
+  web:
+    cmds:
+      - powershell -NoProfile -File ./build-web.ps1
+
+  serve-web:
+    cmds:
+      - python -m http.server 8000 --bind 127.0.0.1 --directory build/web

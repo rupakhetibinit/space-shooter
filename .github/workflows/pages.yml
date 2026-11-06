@@ -1,0 +1,104 @@
+name: Build game and deploy tagged releases
+
+on:
+  push:
+    branches: [master]
+    tags: ['v*']
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: space-shooter-pages
+  cancel-in-progress: false
+
+env:
+  ODIN_VERSION: dev-2026-11
+  EMSCRIPTEN_VERSION: '4.0.10'
+
+jobs:
+  build:
+    name: Test and build Odin WebAssembly
+    runs-on: windows-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Check out the exact commit or tag
+        uses: actions/checkout@v6
+
+      - name: Install the pinned official Odin release
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP 'odin.zip'
+          $folder = Join-Path $env:RUNNER_TEMP 'odin'
+          $url = "https://github.com/odin-lang/Odin/releases/download/$env:ODIN_VERSION/odin-windows-amd64-$env:ODIN_VERSION.zip"
+          Invoke-WebRequest -Uri $url -OutFile $archive
+          Expand-Archive -LiteralPath $archive -DestinationPath $folder
+          $compiler = Get-ChildItem -LiteralPath $folder -Recurse -Filter odin.exe | Select-Object -First 1
+          if (!$compiler) { throw 'Odin compiler was not found in the release archive.' }
+          $compiler.DirectoryName | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Install the pinned Emscripten SDK
+        uses: emscripten-core/setup-emsdk@v15
+        with:
+          version: ${{ env.EMSCRIPTEN_VERSION }}
+          actions-cache-folder: emsdk-cache
+
+      - name: Verify toolchain
+        run: |
+          odin version
+          if ($LASTEXITCODE -ne 0) { throw 'Odin is unavailable.' }
+          emcc --version
+          if ($LASTEXITCODE -ne 0) { throw 'Emscripten is unavailable.' }
+
+      - name: Run gameplay, config and behavior tests
+        run: ./test-game.ps1
+
+      - name: Validate bundled and example campaigns
+        run: |
+          ./validate-levels.ps1
+          ./validate-levels.ps1 -Path examples/starter-campaign.json
+
+      - name: Build the production web game
+        run: ./build-web.ps1
+
+      - name: Package only the public site files
+        run: ./package-web.ps1
+
+      - name: Keep a downloadable build
+        uses: actions/upload-artifact@v4
+        with:
+          name: space-shooter-web
+          path: build/pages
+          include-hidden-files: true
+          if-no-files-found: error
+
+      - name: Upload the Pages artifact for a version tag
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: build/pages
+
+  deploy:
+    name: Deploy the tagged game to GitHub Pages
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy the tested artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
