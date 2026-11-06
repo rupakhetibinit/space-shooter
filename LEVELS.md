@@ -4,7 +4,7 @@ The editor, level loader, validation, scheduling and game simulation are written
 
 ## Visual editor
 
-1. Start the game, then press **E** or use the **Level editor** button beneath the web canvas.
+1. From the web start menu, choose **Create Levels**, or visit `/editor/` directly. Click **Open editor**. On desktop, press **E** from the game.
 2. Use the sector and wave arrows to choose what to edit.
 3. Click an enemy palette button, or use **1-6**. Click the blue spawn grid to place it.
 4. Click an existing enemy to select it. Drag to move it; placements snap to a 20-pixel grid. Right-click an enemy or press Delete to remove it.
@@ -16,6 +16,8 @@ The editor, level loader, validation, scheduling and game simulation are written
 10. Use **Save locally** and **Export JSON** to preserve your work. Editing alone does not persist across reloads.
 
 Each wave must retain at least one enemy and each sector at least one wave. A new wave starts with one Scout; add another kind and delete that Scout if desired. A wave can have at most one Boss. Clone operations create independent copies, so edits do not change the source wave/sector.
+
+The campaign player at `/` is a separate build: it has no editor shortcut or import/export controls and always starts the bundled campaign. Workshop saves are restored only on `/editor/`.
 
 ### Saving and importing on the web
 

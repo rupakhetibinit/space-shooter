@@ -11,7 +11,7 @@ The production site URL will be https://rupakhetibinit.github.io/space-shooter/ 
 3. Ensure GitHub Actions are enabled for the repository. The workflow uses the standard `GITHUB_TOKEN`; no API key or custom deployment secret is required.
 4. If the `github-pages` environment restricts deployment branches/tags, allow tags matching `v*` under **Settings > Environments > github-pages**. Tags must be permitted; a default-branch-only environment rule will block tag deployments.
 
-Enabling Pages requires repository administration access. The connected GitHub App does not expose that settings operation, and this machine's GitHub CLI login needs repair, so the one-time Pages source selection must be completed in GitHub settings.
+Enabling Pages and changing deployment-ref rules require repository administration access. Configure these once before the first tagged deployment.
 
 ## Publish a release
 
@@ -46,7 +46,7 @@ The build downloads Odin from its official release archive and installs Emscript
 python -m http.server 8000 --bind 127.0.0.1 --directory build/pages
 ```
 
-`package-web.ps1` copies an explicit allowlist of ten public files, including the game, WebAssembly runtime, campaign examples, creator/behavior guides and `.nojekyll`. Intermediate object files, native executables, local editor saves and SDKs are excluded. The source folder and build output are never uploaded wholesale.
+`package-web.ps1` copies an explicit allowlist of fifteen public files, including separate player and `/editor/` WebAssembly bundles, campaign examples, creator/behavior guides and `.nojekyll`. Intermediate object files, native executables, local editor saves and SDKs are excluded. The source folder and build output are never uploaded wholesale.
 
 ## Git authentication
 
@@ -57,3 +57,5 @@ Official references:
 - https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 - https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 - https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
+
+The workflow checks the compiled export tables before packaging: creator/import/export APIs must be absent from the player build and present in the creator build. Both release bundles must omit QA controls.

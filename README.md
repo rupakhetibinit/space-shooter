@@ -6,7 +6,7 @@ A small arcade prototype written in Odin with raylib. Runs on desktop and in a b
 
 **12 sectors / 31 waves**, with timed reinforcements, V-shaped diving wings, ring formations, armored screens and bosses in sectors 5, 8 and 12.
 
-Press **E** for the Odin/raylib visual editor: place and drag enemies, set health and spawn delays, clone sectors/waves, tune difficulty, playtest, and import/export JSON. Imported campaigns can be played without recompiling.
+Choose **Create Levels** from the web start menu to open `/editor/` (or press **E** on desktop) for the Odin/raylib visual editor: place and drag enemies, set health and spawn delays, clone sectors/waves, tune difficulty, playtest, and import/export JSON. Imported campaigns can be played without recompiling.
 
 - Shipped campaign: `assets/campaign.json`
 - Small starter: `examples/starter-campaign.json`
@@ -41,7 +41,7 @@ Each kind has a distinct silhouette and color. Armored enemies have health bars.
 - **Hold Space:** fire (or triple shot while powered up).
 - **P:** pause / resume.
 - **R:** restart the entire campaign.
-- **E:** open the mission builder.
+- **E in the creator route or desktop build:** switch to the mission builder. The player build has no editor shortcut.
 - **F5 in the editor:** playtest the selected wave.
 - **Browser:** click Play to start and unlock audio, then keep the canvas focused.
 - **Desktop:** Escape closes the window.
@@ -71,15 +71,17 @@ Install/activate Emscripten using https://emscripten.org/docs/getting_started/do
 python -m http.server 8000 --bind 127.0.0.1 --directory build/web
 ```
 
-Open http://localhost:8000 and click Play. If `emcc` is already on PATH or `EMSDK` is set, just run `./build-web.ps1`.
+Open http://localhost:8000 and choose Play Campaign. The start menu also offers controls help, sound settings, and a Create Levels link to the separate `/editor/` route. If `emcc` is already on PATH or `EMSDK` is set, just run `./build-web.ps1`.
 
 Do not open index.html directly as a file: WebAssembly and preloaded assets need HTTP.
 
 ### Share online
 
-Upload the **contents of `build/web`** to any static host, or zip those contents with `index.html` at the ZIP root for an itch.io HTML game. Keep `index.html`, `index.js`, `index.wasm`, `index.data`, and `odin.js` together. Nothing has been published automatically.
+Upload the **contents of `build/web`** to any static host, or zip those contents with `index.html` at the ZIP root for an itch.io HTML game. Keep the root game files and the complete `editor/` directory together. Use `./package-web.ps1` to prepare the correct upload layout. Nothing has been published automatically.
 
-The shell expects WebAssembly served as `application/wasm` (Python's server handles this). The game needs no backend or cross-origin isolation headers. The output folder also contains the intermediate `game.o`; that file is not needed for hosting.
+The player shell presents a start menu with Play Campaign, How to Play, persistent sound control, and the workshop link. Returning to Menu pauses the campaign; Resume Flight continues it and New Campaign starts fresh. Workshop imports and saved custom campaigns never replace the bundled player campaign.
+
+The shell expects WebAssembly served as `application/wasm` (Python's server handles this). The game needs no backend or cross-origin isolation headers. The raw build folders also contain intermediate `game.o` files; `package-web.ps1` excludes them from hosting.
 
 ## Implementation
 

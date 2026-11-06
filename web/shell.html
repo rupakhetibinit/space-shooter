@@ -1,168 +1,82 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="icon" href="data:,">
-  <title>Space Shooter</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      font-family: system-ui, sans-serif;
-      background: #10131e;
-      color: #e9edff
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center
-    }
-
-    main {
-      width: min(96vw, 960px, calc((100svh - 180px)*4/3));
-      text-align: center;
-      padding: 24px 0
-    }
-
-    h1 {
-      font-size: 24px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin: 0 0 8px
-    }
-
-    p {
-      color: #acb6d1;
-      font-size: 14px
-    }
-
-    .stage {
-      position: relative;
-      background: #080b13;
-      border: 1px solid #343d57;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 24px 80px #0006
-    }
-
-    canvas {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4/3;
-      outline: none;
-      image-rendering: pixelated
-    }
-
-    #start {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-content: center;
-      background: #080b13d9;
-      gap: 14px
-    }
-
-    button {
-      font: inherit;
-      background: #d3f47b;
-      color: #142016;
-      border: 0;
-      border-radius: 8px;
-      padding: 12px 22px;
-      cursor: pointer
-    }
-
-    button:disabled {
-      opacity: .5;
-      cursor: wait
-    }
-
-    footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 14px
-    }
-
-    footer button {
-      background: #29334c;
-      color: #e9edff;
-      padding: 8px 14px
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d18">
+<link rel="icon" href="data:,">
+<title>Outer Rim — Space Shooter</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#080d18;color:#eaf0fa;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 78% 25%,#18364955,transparent 48%),radial-gradient(ellipse at 15% 80%,#26384b45,transparent 50%),#080d18;display:grid;place-items:center;padding:32px 20px}
+button,a,input{touch-action:manipulation}button,a{ -webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:disabled{opacity:.45;cursor:wait}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #d3f47b;outline-offset:5px}[hidden]{display:none!important}
+#launcher{width:min(1040px,100%)}.masthead{display:flex;justify-content:space-between;align-items:center;color:#8fa4bb;font:11px ui-monospace,monospace;letter-spacing:.16em;padding-bottom:23px;border-bottom:1px solid #263447}.brand{color:#c4d1df}.signal{display:flex;align-items:center;gap:9px}.dot{width:6px;height:6px;border-radius:50%;background:#d3f47b;box-shadow:0 0 14px #d3f47b66}
+.menu-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center;padding:64px 0 52px}.eyebrow{font:11px ui-monospace,monospace;letter-spacing:.22em;color:#b5d3e4;margin:0 0 22px}h1{font-weight:850;font-size:clamp(62px,8vw,102px);line-height:.87;letter-spacing:-.065em;margin:0 0 26px}h1 span{display:block;color:#d3f47b}.intro{color:#93a7bc;font-size:16px;line-height:1.7;max-width:350px;margin:0 0 28px}.stats{display:flex;gap:29px;font:10px ui-monospace,monospace;letter-spacing:.09em;color:#849ab1}.stats strong{display:block;font-family:system-ui,sans-serif;font-size:23px;letter-spacing:-.04em;color:#e7eef8;margin-bottom:5px}
+.flight-card{border:1px solid #2a4051;border-radius:16px;overflow:hidden;background:linear-gradient(155deg,#122130,#0c1422);box-shadow:0 30px 90px #0005}.radar{position:relative;height:202px;overflow:hidden;background:radial-gradient(ellipse at 50% 100%,#335a7044,transparent 70%)}.radar::before,.radar::after{content:"";position:absolute;width:360px;height:360px;border:1px solid #7aabc51d;border-radius:50%;left:50%;top:62%;transform:translate(-50%,-50%)}.radar::after{width:230px;height:230px}.star-map{position:absolute;inset:0;width:100%;height:100%}.ship{position:absolute;width:78px;height:98px;left:50%;top:53%;transform:translate(-50%,-50%);filter:drop-shadow(0 0 25px #78d9f344)}.radar-label{position:absolute;left:22px;top:20px;font:9px ui-monospace,monospace;color:#7997b0;letter-spacing:.15em}.radar-label.right{left:auto;right:22px}.menu-actions{padding:25px;border-top:1px solid #294050}.launch{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#d3f47b;color:#17210c;border:0;border-radius:8px;padding:17px 19px;width:100%;font-weight:750;font-size:16px}.launch span:last-child{font-size:22px;font-weight:400}.secondary{display:flex;width:100%;align-items:center;justify-content:space-between;color:#c1cfdf;background:transparent;border:1px solid #314255;border-radius:8px;padding:13px 17px;margin-top:11px;font-size:13px}.sound{display:flex;align-items:center;justify-content:space-between;margin-top:20px;font-size:12px;color:#91a8bd}.sound label{display:flex;gap:9px;align-items:center;cursor:pointer}.sound input{accent-color:#d3f47b;width:16px;height:16px;margin:0}.key-hint{font:10px ui-monospace,monospace;color:#6f879f}.menu-footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #263447;padding-top:22px;font-size:12px;color:#6e859d;gap:16px}.menu-footer a{color:#9db6cc;text-decoration:none;display:flex;align-items:center;gap:12px}.menu-footer a:hover{color:#d3f47b}.workshop-label{font:9px ui-monospace,monospace;letter-spacing:.1em;color:#657e96}
+#game-view{width:min(96vw,1000px,calc((100svh - 135px)*4/3))}.game-header,.game-footer{display:flex;justify-content:space-between;align-items:center;gap:14px}.game-header{margin-bottom:13px;font:12px ui-monospace,monospace;letter-spacing:.12em;color:#c1d1e2}.utility{background:#182638;border:1px solid #32465b;border-radius:6px;color:#c9d8e8;font-size:12px;padding:8px 13px}.stage{background:#050916;border:1px solid #31465c;border-radius:12px;overflow:hidden;box-shadow:0 25px 80px #0006}canvas{display:block;width:100%;height:auto;aspect-ratio:4/3;outline:none;image-rendering:pixelated}.game-footer{font-size:11px;line-height:1.6;color:#829bb4;margin-top:12px}.game-footer p{margin:0}
+dialog{background:#0f1b2c;color:#eaf0fa;border:1px solid #37506b;border-radius:14px;width:min(460px,calc(100vw - 40px));padding:30px;box-shadow:0 30px 100px #0008}dialog::backdrop{background:#020611cf}dialog h2{margin:0 0 10px;font-size:25px;letter-spacing:-.04em}dialog p{color:#9ab0c7;font-size:13px;line-height:1.7}.controls{margin:25px 0;display:grid;gap:16px}.controls div{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid #24364b;padding-bottom:13px;font-size:13px;color:#afc1d5}.controls b{font:12px ui-monospace,monospace;color:#d3f47b}.close-dialog{width:100%;background:#22364c;border:1px solid #385370;border-radius:7px;color:#eaf0fa;padding:12px}
+@media(max-width:700px){body{padding:22px 18px}.masthead{font-size:9px}.menu-grid{grid-template-columns:1fr;gap:30px;padding:38px 0 30px}h1{font-size:76px}.intro{max-width:none;font-size:14px;margin-bottom:20px}.stats{gap:30px}.radar{height:135px}.menu-actions{padding:19px}.menu-footer{font-size:10px}.workshop-label{display:none}#game-view{width:100%}.game-footer{align-items:flex-start}.key-hint{display:none}}
+</style>
 </head>
-
 <body>
-  <main>
-    <h1>Space Shooter</h1>
-    <p>OUTER RIM / 12 sectors. Build your own missions.</p>
-    <div class="stage"><canvas id="canvas" width="800" height="600" tabindex="0"
-        aria-label="Space shooter game. Arrow keys or WASD to move, Space to fire, P to pause, R to restart, E for the level editor."></canvas>
-      <div id="start"><span id="status" role="status">Loading game…</span><button id="play" disabled>Play</button></div>
+<main id="launcher">
+  <header class="masthead"><span class="brand">OUTER RIM / FLIGHT COMMAND</span><span class="signal"><i class="dot" aria-hidden="true"></i><span id="status" role="status">LOADING SYSTEMS</span></span></header>
+  <section class="menu-grid" aria-label="Main menu">
+    <div><p class="eyebrow">ONE SHIP. THE WHOLE FRONTIER.</p><h1>OUTER<span>RIM.</span></h1><p class="intro">Read the enemy. Find your opening.<br>Fight your way through the frontier.</p><div class="stats"><div><strong>12</strong>SECTORS</div><div><strong>31</strong>WAVES</div><div><strong>3</strong>BOSS ENCOUNTERS</div></div></div>
+    <div class="flight-card">
+      <div class="radar" aria-hidden="true"><span class="radar-label">SHIP 01 / READY FOR FLIGHT</span><span class="radar-label right">+ SECTOR 001</span><svg class="star-map" viewBox="0 0 420 202" fill="#85adc9"><circle cx="29" cy="75" r="1"/><circle cx="89" cy="38" r="1"/><circle cx="350" cy="68" r="1.4"/><circle cx="310" cy="158" r="1"/><circle cx="65" cy="176" r="1.5"/><circle cx="151" cy="104" r="1"/><circle cx="276" cy="36" r="1"/><circle cx="386" cy="187" r="1"/></svg><svg class="ship" viewBox="0 0 64 80" shape-rendering="crispEdges"><path fill="#69d5ed" opacity=".5" d="M27 57h10v18H27z"/><path fill="#b6f5fb" d="M29 60h6v14h-6z"/><path fill="#adbed2" d="M28 6h8v10h6v14h8v13h8v15H40v-9H24v9H6V43h8V30h8V16h6z"/><path fill="#e8f0f7" d="M28 15h8v31h8v9H20v-9h8z"/><path fill="#ee7778" d="M28 7h8v8h-8zM14 34h8v13h-8zM42 34h8v13h-8zM7 47h7v8H7zM50 47h7v8h-7z"/><path fill="#213e5a" d="M28 25h8v14h-8z"/><path fill="#91ebef" d="M29 27h6v7h-6z"/></svg></div>
+      <div class="menu-actions"><button class="launch" id="play" disabled><span id="play-label">Play Campaign</span><span aria-hidden="true">↗</span></button><button class="secondary" id="new-run" hidden>New Campaign <span aria-hidden="true">↻</span></button><button class="secondary" id="how-to-play">How to Play <span aria-hidden="true">?</span></button><div class="sound"><label><input type="checkbox" id="sound-toggle" checked>Sound enabled</label><span class="key-hint">KEYBOARD REQUIRED</span></div></div>
     </div>
-    <footer>
-      <p>WASD / Arrows to move · Space to fire · P to pause · R restart · E editor</p><button
-        id="fullscreen">Fullscreen</button>
-    </footer>
-    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px">
-      <button id="editor-button" disabled>Level editor (E)</button><button id="import-button" disabled>Import
-        campaign</button><button id="export-button" disabled>Export JSON</button>
-    </div><input id="campaign-file" type="file" accept=".json,application/json" hidden>
-    <script src="odin.js"></script>
-    <script>
-      const canvas = document.getElementById('canvas'), status = document.getElementById('status'), play = document.getElementById('play');
-      const memory = new odin.WasmMemoryInterface(); memory.setIntSize(4);
-      const odinImports = odin.setupDefaultImports(memory);
-      let game, running = false;
-      const campaignKey = 'space-shooter.campaign.v1';
-      function campaignStore(text) { try { localStorage.setItem(campaignKey, text); return 1 } catch (e) { console.warn('Campaign storage unavailable', e); return 0 } }
-      function campaignDownload(text) { const url = URL.createObjectURL(new Blob([text], { type: 'application/json' })); const a = document.createElement('a'); a.href = url; a.download = 'campaign.json'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000) }
-      function importCampaign(text) { const data = new TextEncoder().encode(text); if (data.length > 262144) return game.web_campaign_import(-1); new Uint8Array(memory.memory.buffer, game.web_campaign_buffer(), data.length).set(data); return game.web_campaign_import(data.length) }
-      function fail(error) { running = false; status.textContent = 'Could not start the game. Reload to try again.'; document.getElementById('start').style.display = 'grid'; play.disabled = true; console.error(error) }
-      var Module = {
-        canvas,
-        print: console.log,
-        printErr: console.error,
-        onAbort: fail,
-        instantiateWasm(imports, done) {
-          WebAssembly.instantiateStreaming(fetch('index.wasm'), { ...odinImports, ...imports })
-            .then(({ instance }) => { game = instance.exports; memory.setExports(game); memory.setMemory(game.memory); done(instance) })
-            .catch(fail);
-          return {};
-        },
-        onRuntimeInitialized() {
-          game._start(); status.textContent = 'Ready when you are.'; play.disabled = false;
-          play.addEventListener('click', () => {
-            try {
-              game.web_start();
-              try { const saved = localStorage.getItem(campaignKey); if (saved) { if (importCampaign(saved)) game.web_campaign_play(); } } catch (e) { console.warn('Could not restore campaign', e) }
-              for (const id of ['editor-button', 'import-button', 'export-button']) document.getElementById(id).disabled = false;
-              document.getElementById('start').style.display = 'none'; canvas.focus({ preventScroll: true }); running = true;
-              function frame() { if (!running) return; try { game.web_frame(); requestAnimationFrame(frame) } catch (e) { fail(e) } }
-              requestAnimationFrame(frame);
-            } catch (e) { fail(e) }
-          }, { once: true });
-        }
-      };
-      canvas.addEventListener('pointerdown', () => canvas.focus({ preventScroll: true }));
-      canvas.addEventListener('keydown', event => { if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Space'].includes(event.code)) event.preventDefault() });
-      document.getElementById('editor-button').addEventListener('click', () => { game.web_editor_toggle(); canvas.focus({ preventScroll: true }) });
-      document.getElementById('import-button').addEventListener('click', () => document.getElementById('campaign-file').click());
-      document.getElementById('export-button').addEventListener('click', () => game.web_campaign_export());
-      document.getElementById('campaign-file').addEventListener('change', async event => {
-        const file = event.target.files[0]; if (!file) return;
-        if (file.size > 262144) game.web_campaign_import(-1); else importCampaign(await file.text());
-        event.target.value = ''; canvas.focus({ preventScroll: true });
-      });
-      document.getElementById('fullscreen').addEventListener('click', () => canvas.requestFullscreen().catch(console.error));
-    </script>
-    {{{ SCRIPT }}}
-  </main>
+  </section>
+  <footer class="menu-footer"><span>BUILT WITH ODIN + RAYLIB</span><a href="editor/"><span class="workshop-label">WORKSHOP</span>Create Levels <span aria-hidden="true">↗</span></a></footer>
+</main>
+<section id="game-view" hidden aria-label="Campaign game">
+  <header class="game-header"><span>OUTER RIM / CAMPAIGN</span><button class="utility" id="menu-button">Menu</button></header>
+  <div class="stage"><canvas id="canvas" width="800" height="600" tabindex="0" aria-label="Campaign game. WASD or arrow keys to move, Space to fire, P to pause, R to restart."></canvas></div>
+  <footer class="game-footer"><p>WASD / Arrows move · Space fires · P pauses · R restarts</p><button class="utility" id="fullscreen">Fullscreen</button></footer>
+</section>
+<dialog id="controls-dialog" aria-labelledby="controls-title"><h2 id="controls-title">Make every opening count.</h2><p>Clear each wave to advance. Enemy warnings show where an attack will go. Move after they commit.</p><div class="controls"><div><span>Move your ship</span><b>WASD / ARROWS</b></div><div><span>Fire your weapon</span><b>HOLD SPACE</b></div><div><span>Pause / resume</span><b>P</b></div><div><span>Start a fresh campaign</span><b>R</b></div></div><p>Catch the glowing pickups for triple shot. Reach a new sector to recover one shield.</p><button class="close-dialog" id="close-controls">Got it</button></dialog>
+<script src="odin.js"></script>
+<script>
+const canvas=document.getElementById('canvas');
+const launcher=document.getElementById('launcher');
+const gameView=document.getElementById('game-view');
+const play=document.getElementById('play');
+const status=document.getElementById('status');
+const memory=new odin.WasmMemoryInterface();memory.setIntSize(4);
+const odinImports=odin.setupDefaultImports(memory);
+let game,started=false,menuOpen=true,frameLoopStarted=false;
+const soundToggle=document.getElementById('sound-toggle');
+try{soundToggle.checked=localStorage.getItem('space-shooter.sound')!=='off'}catch{}
+function fail(error){menuOpen=true;launcher.hidden=false;gameView.hidden=true;status.textContent='COULD NOT LOAD — PLEASE RELOAD';play.disabled=true;console.error(error)}
+function frame(){if(started&&!menuOpen){try{game.web_frame()}catch(error){fail(error)}}requestAnimationFrame(frame)}
+function enterCampaign(fresh=false){
+ try{
+  gameView.hidden=false;launcher.hidden=true;
+  if(!started){game.web_start();started=true}
+  else if(fresh){game.web_restart()}
+  game.web_set_muted(soundToggle.checked?0:1);game.web_set_paused(0);
+  menuOpen=false;canvas.focus({preventScroll:true});
+  if(!frameLoopStarted){frameLoopStarted=true;requestAnimationFrame(frame)}
+ }catch(error){fail(error)}
+}
+function showMenu(){if(!started)return;game.web_set_paused(1);menuOpen=true;gameView.hidden=true;launcher.hidden=false;document.getElementById('play-label').textContent='Resume Flight';document.getElementById('new-run').hidden=false;play.focus({preventScroll:true})}
+var Module={canvas,print:console.log,printErr:console.error,onAbort:fail,
+ instantiateWasm(imports,done){WebAssembly.instantiateStreaming(fetch('index.wasm'),{...odinImports,...imports}).then(({instance})=>{game=instance.exports;memory.setExports(game);memory.setMemory(game.memory);done(instance)}).catch(fail);return{}},
+ onRuntimeInitialized(){game._start();status.textContent='SYSTEMS READY';play.disabled=false}
+};
+play.addEventListener('click',()=>enterCampaign());
+document.getElementById('new-run').addEventListener('click',()=>enterCampaign(true));
+document.getElementById('menu-button').addEventListener('click',showMenu);
+const controls=document.getElementById('controls-dialog');
+document.getElementById('how-to-play').addEventListener('click',()=>controls.showModal());
+document.getElementById('close-controls').addEventListener('click',()=>controls.close());
+soundToggle.addEventListener('change',()=>{try{localStorage.setItem('space-shooter.sound',soundToggle.checked?'on':'off')}catch{}if(started)game.web_set_muted(soundToggle.checked?0:1)});
+canvas.addEventListener('pointerdown',()=>canvas.focus({preventScroll:true}));
+canvas.addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Space'].includes(event.code))event.preventDefault();if(event.code==='Escape'){event.preventDefault();showMenu()}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&started&&!menuOpen)showMenu()});
+document.getElementById('fullscreen').addEventListener('click',()=>canvas.requestFullscreen().catch(console.error));
+</script>
+{{{ SCRIPT }}}
 </body>
-
 </html>
