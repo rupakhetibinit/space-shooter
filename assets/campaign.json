@@ -1,0 +1,2805 @@
+{
+  "version": 1,
+  "sectors": [
+    {
+      "name": "FIRST CONTACT",
+      "tip": "Break their formation. Keep moving between shots.",
+      "bullet_speed": 1.0,
+      "fire_interval": 1.0,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Scout",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 223,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 341,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 459,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 577,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Weaver",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 223,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 341,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 459,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 577,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 105,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 223,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 341,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 459,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 577,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 695,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "SERPENT BELT",
+      "tip": "Divers loop through your flight lane. Watch below.",
+      "bullet_speed": 1.018,
+      "fire_interval": 0.982,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Weaver",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 223,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 341,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 459,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 577,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Weaver",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 223,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 341,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 459,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 577,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 105,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 223,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 341,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 459,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 577,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 695,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "IRON CONVOY",
+      "tip": "Tanks take four hits. Focus your fire.",
+      "bullet_speed": 1.036,
+      "fire_interval": 0.964,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Tank",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 203,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 302,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 400,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 498,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 597,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 105,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 203,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 302,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 400,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 498,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 597,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 695,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 203,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 302,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 400,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 498,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 597,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 105,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 203,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 302,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 400,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 498,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Scout",
+              "x": 597,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 695,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "CROSSFIRE",
+      "tip": "Spitters fire fans. Slip between them.",
+      "bullet_speed": 1.054,
+      "fire_interval": 0.946,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Spitter",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 203,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 302,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 400,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 498,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 597,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 105,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 203,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 302,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 400,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 498,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 597,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 695,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Spitter",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 203,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 302,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 400,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 498,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 597,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 105,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 203,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 302,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 400,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 498,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 597,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 695,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "THE HIVE",
+      "tip": "Clear the guard. Destroy the exposed core.",
+      "bullet_speed": 1.072,
+      "fire_interval": 0.928,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Tank",
+              "x": 105,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 203,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 302,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 400,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 498,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 597,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Tank",
+              "x": 695,
+              "y": 105,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 105,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 203,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 302,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 400,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 498,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 597,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Spitter",
+              "x": 695,
+              "y": 193,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Boss",
+              "x": 400,
+              "y": 125,
+              "hp": 48,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 140,
+              "y": 210,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 660,
+              "y": 210,
+              "hp": 0,
+              "delay": 0
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "SHATTERED RELAY",
+      "tip": "Reinforcements arrive in timed groups.",
+      "bullet_speed": 1.09,
+      "fire_interval": 0.91,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Scout",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Weaver",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            },
+            {
+              "kind": "Weaver",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Weaver",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Weaver",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Spitter",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            },
+            {
+              "kind": "Spitter",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Spitter",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Spitter",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.2
+            },
+            {
+              "kind": "Scout",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Scout",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 4.2
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "NEEDLE RUN",
+      "tip": "Diving wings attack through the center.",
+      "bullet_speed": 1.108,
+      "fire_interval": 0.892,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 160,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 226,
+              "y": 136,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 342,
+              "y": 112,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 112,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 574,
+              "y": 136,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 690,
+              "y": 160,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 205,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 226,
+              "y": 181,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Weaver",
+              "x": 342,
+              "y": 157,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 157,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 574,
+              "y": 181,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Weaver",
+              "x": 690,
+              "y": 205,
+              "hp": 0,
+              "delay": 2
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 160,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 136,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 342,
+              "y": 112,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 112,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 136,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 690,
+              "y": 160,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 205,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 181,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 342,
+              "y": 157,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 157,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 181,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 690,
+              "y": 205,
+              "hp": 0,
+              "delay": 2
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Weaver",
+              "x": 110,
+              "y": 160,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 226,
+              "y": 136,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 342,
+              "y": 112,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 458,
+              "y": 112,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 574,
+              "y": 136,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 690,
+              "y": 160,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 110,
+              "y": 205,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 226,
+              "y": 181,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 342,
+              "y": 157,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Weaver",
+              "x": 458,
+              "y": 157,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 574,
+              "y": 181,
+              "hp": 0,
+              "delay": 2
+            },
+            {
+              "kind": "Diver",
+              "x": 690,
+              "y": 205,
+              "hp": 0,
+              "delay": 2
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "PRISM GATE",
+      "tip": "Break the ring, then face its guardian.",
+      "bullet_speed": 1.126,
+      "fire_interval": 0.874,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Spitter",
+              "x": 645,
+              "y": 170,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 612,
+              "y": 202,
+              "hp": 0,
+              "delay": 0.7
+            },
+            {
+              "kind": "Weaver",
+              "x": 522,
+              "y": 226,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 400,
+              "y": 235,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 278,
+              "y": 226,
+              "hp": 0,
+              "delay": 0.7
+            },
+            {
+              "kind": "Weaver",
+              "x": 188,
+              "y": 202,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 155,
+              "y": 170,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 188,
+              "y": 138,
+              "hp": 0,
+              "delay": 0.7
+            },
+            {
+              "kind": "Weaver",
+              "x": 277,
+              "y": 114,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 400,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 522,
+              "y": 114,
+              "hp": 0,
+              "delay": 0.7
+            },
+            {
+              "kind": "Weaver",
+              "x": 612,
+              "y": 137,
+              "hp": 0,
+              "delay": 1.4
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Spitter",
+              "x": 645,
+              "y": 170,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 612,
+              "y": 202,
+              "hp": 0,
+              "delay": 0.7
+            },
+            {
+              "kind": "Weaver",
+              "x": 522,
+              "y": 226,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 400,
+              "y": 235,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 278,
+              "y": 226,
+              "hp": 0,
+              "delay": 0.7
+            },
+            {
+              "kind": "Weaver",
+              "x": 188,
+              "y": 202,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 155,
+              "y": 170,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 188,
+              "y": 138,
+              "hp": 0,
+              "delay": 0.7
+            },
+            {
+              "kind": "Weaver",
+              "x": 277,
+              "y": 114,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 400,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 522,
+              "y": 114,
+              "hp": 0,
+              "delay": 0.7
+            },
+            {
+              "kind": "Weaver",
+              "x": 612,
+              "y": 137,
+              "hp": 0,
+              "delay": 1.4
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Boss",
+              "x": 400,
+              "y": 125,
+              "hp": 60,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 140,
+              "y": 210,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 660,
+              "y": 210,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 240,
+              "y": 200,
+              "hp": 0,
+              "delay": 5
+            },
+            {
+              "kind": "Diver",
+              "x": 560,
+              "y": 200,
+              "hp": 0,
+              "delay": 8
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "RUST ARMADA",
+      "tip": "Heavy armor protects the artillery.",
+      "bullet_speed": 1.144,
+      "fire_interval": 0.856,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Tank",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Tank",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Tank",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 1.4
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "GHOST CORRIDOR",
+      "tip": "Delayed ambushes close the safe lanes.",
+      "bullet_speed": 1.162,
+      "fire_interval": 0.838,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 2.5
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 2.5
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 2.5
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 5.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 5.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 5.0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 7.5
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 7.5
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 7.5
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.5
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.5
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.5
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 3.0
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 5.5
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 5.5
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 5.5
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 8.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 8.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 8.0
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 1.0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 3.5
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 3.5
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 3.5
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 6.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 6.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 6.0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 8.5
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 8.5
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 8.5
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "BROODSTORM",
+      "tip": "Clear the swarm before the next group arrives.",
+      "bullet_speed": 1.18,
+      "fire_interval": 0.82,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.8
+            },
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 226,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 342,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 574,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            },
+            {
+              "kind": "Scout",
+              "x": 690,
+              "y": 235,
+              "hp": 0,
+              "delay": 5.6
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    },
+    {
+      "name": "LAST SIGNAL",
+      "tip": "One final gauntlet. Finish the Matriarch.",
+      "bullet_speed": 1.198,
+      "fire_interval": 0.802,
+      "motion_scale": 1,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "kind": "Spitter",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.4
+            },
+            {
+              "kind": "Weaver",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Tank",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Diver",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.4
+            },
+            {
+              "kind": "Weaver",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.0
+            },
+            {
+              "kind": "Tank",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.4
+            },
+            {
+              "kind": "Spitter",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.0
+            },
+            {
+              "kind": "Diver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.4
+            },
+            {
+              "kind": "Weaver",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.0
+            },
+            {
+              "kind": "Tank",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.4
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Diver",
+              "x": 110,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 226,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.4
+            },
+            {
+              "kind": "Tank",
+              "x": 342,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 458,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.4
+            },
+            {
+              "kind": "Diver",
+              "x": 574,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 690,
+              "y": 105,
+              "hp": 0,
+              "delay": 0.4
+            },
+            {
+              "kind": "Tank",
+              "x": 110,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 226,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.4
+            },
+            {
+              "kind": "Diver",
+              "x": 342,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.0
+            },
+            {
+              "kind": "Weaver",
+              "x": 458,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.4
+            },
+            {
+              "kind": "Tank",
+              "x": 574,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.0
+            },
+            {
+              "kind": "Spitter",
+              "x": 690,
+              "y": 170,
+              "hp": 0,
+              "delay": 2.4
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "kind": "Boss",
+              "x": 400,
+              "y": 125,
+              "hp": 84,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 140,
+              "y": 210,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Weaver",
+              "x": 660,
+              "y": 210,
+              "hp": 0,
+              "delay": 0
+            },
+            {
+              "kind": "Diver",
+              "x": 240,
+              "y": 200,
+              "hp": 0,
+              "delay": 5
+            },
+            {
+              "kind": "Diver",
+              "x": 560,
+              "y": 200,
+              "hp": 0,
+              "delay": 8
+            }
+          ]
+        }
+      ],
+      "variation": 0.75
+    }
+  ],
+  "seed": 1337
+}

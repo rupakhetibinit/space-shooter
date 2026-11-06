@@ -1,3 +1,10 @@
 graphics
 space-shooter.exe
 .task
+# Generated desktop and browser builds
+build/
+
+# Local editor saves (export separately to share)
+campaign.custom.json
+campaign.export.json
+campaign.import.json
