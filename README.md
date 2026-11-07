@@ -110,3 +110,14 @@ Asset reference: https://grafxkid.itch.io/mini-pixel-pack-3
 ## Tag-triggered GitHub Pages deployment
 
 Push a version tag such as `v0.1.0` to deploy the tested web game. Branch/PR pushes build and test without publishing. The one-time Pages source must be set to **GitHub Actions**. See [DEPLOYMENT.md](DEPLOYMENT.md) for setup, release commands, toolchain pins and troubleshooting.
+## Source formatting
+
+Before pushing changes:
+
+```powershell
+./format-odin.ps1
+./format-odin.ps1 -Check
+./test-game.ps1
+```
+
+The script formats every non-ignored Odin source, including tests and tools, using `odinfmt.json` (tabs, 120-column wrapping, LF endings). It finds `odinfmt` on PATH or in an OLS installation beside Odin. You can also set `ODINFMT` or pass `-Formatter "C:/tools/ols/odinfmt.exe"`. Install odinfmt from the [OLS project](https://github.com/DanielGavin/ols) if needed.
