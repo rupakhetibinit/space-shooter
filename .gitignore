@@ -1,10 +1,27 @@
-graphics
-space-shooter.exe
-.task
-# Generated desktop and browser builds
-build/
+# Build output and temporary tool files
+/build/
+/bin/
+/graphics/
+/.task/
+*.exe
+*.pdb
+*.obj
+*.o
+*.ilk
+*.exp
+*.odin_bk
 
-# Local editor saves (export separately to share)
-campaign.custom.json
-campaign.export.json
-campaign.import.json
+# Machine-local IDE and language-server settings
+/.idea/
+/.vscode/
+/ols.json
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Local editor saves; export explicitly to share a campaign
+/campaign.custom.json
+/campaign.export.json
+/campaign.import.json
