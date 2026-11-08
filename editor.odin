@@ -58,7 +58,7 @@ editor_playtest :: proc() {
 	reset_round()
 	level = editor_sector + 1;wave = editor_wave + 1
 	preview_mode = true;editor_open = false
-	phase = .Playing;spawn_wave();invulnerable = 1.6
+	phase = .Playing;spawn_wave();invulnerable = 1.0
 }
 editor_save :: proc(download: bool) {
 	data := campaign_json()

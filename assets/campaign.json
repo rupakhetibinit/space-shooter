@@ -148,8 +148,8 @@
     {
       "name": "SERPENT BELT",
       "tip": "Divers loop through your flight lane. Watch below.",
-      "bullet_speed": 1.018,
-      "fire_interval": 0.982,
+      "bullet_speed": 1.04,
+      "fire_interval": 0.975,
       "motion_scale": 1,
       "waves": [
         {
@@ -292,8 +292,8 @@
     {
       "name": "IRON CONVOY",
       "tip": "Tanks take four hits. Focus your fire.",
-      "bullet_speed": 1.036,
-      "fire_interval": 0.964,
+      "bullet_speed": 1.08,
+      "fire_interval": 0.95,
       "motion_scale": 1,
       "waves": [
         {
@@ -506,8 +506,8 @@
     {
       "name": "CROSSFIRE",
       "tip": "Spitters fire fans. Slip between them.",
-      "bullet_speed": 1.054,
-      "fire_interval": 0.946,
+      "bullet_speed": 1.12,
+      "fire_interval": 0.925,
       "motion_scale": 1,
       "waves": [
         {
@@ -720,8 +720,8 @@
     {
       "name": "THE HIVE",
       "tip": "Clear the guard. Destroy the exposed core.",
-      "bullet_speed": 1.072,
-      "fire_interval": 0.928,
+      "bullet_speed": 1.16,
+      "fire_interval": 0.9,
       "motion_scale": 1,
       "waves": [
         {
@@ -857,8 +857,8 @@
     {
       "name": "SHATTERED RELAY",
       "tip": "Reinforcements arrive in timed groups.",
-      "bullet_speed": 1.09,
-      "fire_interval": 0.91,
+      "bullet_speed": 1.2,
+      "fire_interval": 0.875,
       "motion_scale": 1,
       "waves": [
         {
@@ -1131,8 +1131,8 @@
     {
       "name": "NEEDLE RUN",
       "tip": "Diving wings attack through the center.",
-      "bullet_speed": 1.108,
-      "fire_interval": 0.892,
+      "bullet_speed": 1.24,
+      "fire_interval": 0.85,
       "motion_scale": 1,
       "waves": [
         {
@@ -1405,8 +1405,8 @@
     {
       "name": "PRISM GATE",
       "tip": "Break the ring, then face its guardian.",
-      "bullet_speed": 1.126,
-      "fire_interval": 0.874,
+      "bullet_speed": 1.28,
+      "fire_interval": 0.825,
       "motion_scale": 1,
       "waves": [
         {
@@ -1630,8 +1630,8 @@
     {
       "name": "RUST ARMADA",
       "tip": "Heavy armor protects the artillery.",
-      "bullet_speed": 1.144,
-      "fire_interval": 0.856,
+      "bullet_speed": 1.32,
+      "fire_interval": 0.8,
       "motion_scale": 1,
       "waves": [
         {
@@ -1904,8 +1904,8 @@
     {
       "name": "GHOST CORRIDOR",
       "tip": "Delayed ambushes close the safe lanes.",
-      "bullet_speed": 1.162,
-      "fire_interval": 0.838,
+      "bullet_speed": 1.36,
+      "fire_interval": 0.775,
       "motion_scale": 1,
       "waves": [
         {
@@ -2178,8 +2178,8 @@
     {
       "name": "BROODSTORM",
       "tip": "Clear the swarm before the next group arrives.",
-      "bullet_speed": 1.18,
-      "fire_interval": 0.82,
+      "bullet_speed": 1.4,
+      "fire_interval": 0.75,
       "motion_scale": 1,
       "waves": [
         {
@@ -2578,8 +2578,8 @@
     {
       "name": "LAST SIGNAL",
       "tip": "One final gauntlet. Finish the Matriarch.",
-      "bullet_speed": 1.198,
-      "fire_interval": 0.802,
+      "bullet_speed": 1.44,
+      "fire_interval": 0.725,
       "motion_scale": 1,
       "waves": [
         {
