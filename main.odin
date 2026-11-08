@@ -193,7 +193,7 @@ add_burst :: proc(pos: rl.Vector2, color: rl.Color) {
 }
 hurt_player :: proc() {
 	if invulnerable > 0 || phase != .Playing {return}
-	shields -= 1;invulnerable = 1.6
+	shields -= 1;invulnerable = 1.0
 	add_burst({shipPosition.x + 20, shipPosition.y + 20}, {101, 220, 255, 255})
 	sound(explosionSound)
 	if shields <= 0 {phase = .Defeat}
@@ -246,7 +246,7 @@ step_game :: proc(dt: f32, input: Controls) {
 					if e.hp <= 0 {
 						score += e.max_hp * 100;kills += 1
 						add_burst(e.position, enemy_color(e.kind));sound(explosionSound)
-						if kills % 5 == 0 {append(&pickups, Pickup{position = e.position})}
+						if kills % 8 == 0 {append(&pickups, Pickup{position = e.position})}
 						unordered_remove(&enemies, j)
 					}
 					break
@@ -260,7 +260,7 @@ step_game :: proc(dt: f32, input: Controls) {
 	for i := len(pickups) - 1; i >= 0; i -= 1 {
 		pickups[i].position.y += 100 * dt
 		if rl.CheckCollisionCircleRec(pickups[i].position, 16, {shipPosition.x, shipPosition.y, 40, 40}) {
-			weapon_timer = 10
+			weapon_timer = 7
 			score += 50
 			unordered_remove(&pickups, i)
 		} else if pickups[i].position.y > 630 {unordered_remove(&pickups, i)}
@@ -269,7 +269,7 @@ step_game :: proc(dt: f32, input: Controls) {
 	if len(enemies) == 0 {
 		clear(&lasers);clear(&pickups)
 		score += 250 * level
-		weapon_timer = max(weapon_timer, 4)
+		weapon_timer = max(weapon_timer, 2)
 		if preview_mode ||
 		   (level == len(campaign.sectors) && wave == len(active_sector().waves)) {phase = .Victory;return}
 		if wave == len(active_sector().waves) {
@@ -278,7 +278,7 @@ step_game :: proc(dt: f32, input: Controls) {
 			phase_timer = 3
 		} else {wave += 1;phase_timer = 2}
 		phase = .Intermission
-		shipPosition = {380, 520};invulnerable = 1.6
+		shipPosition = {380, 520};invulnerable = 1.0
 	}
 }
 

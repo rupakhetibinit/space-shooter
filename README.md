@@ -28,10 +28,10 @@ Each kind has a distinct silhouette and color. Armored enemies have health bars.
 ### Player and rewards
 
 - Five shield points; damage from hostile bullets or enemy contact.
-- Forgiving ship hitbox and 1.6 seconds of invulnerability after damage.
+- Forgiving ship hitbox and 1 second of invulnerability after damage.
 - One shield restored on entering a new sector, up to five.
-- A weapon pickup drops every fifth kill. Catch it for ten seconds of triple shot and 50 points.
-- Four seconds of triple shot are guaranteed after each cleared wave.
+- A weapon pickup drops every eighth kill. Catch it for seven seconds of triple shot and 50 points.
+- Two seconds of triple shot are guaranteed after each cleared wave.
 - Enemy kills award 100 points per starting HP; wave clears award 250 times the sector number.
 - Each new wave has a countdown and sector-specific hint. Losing all shields ends the run; clearing the boss and escorts wins it.
 

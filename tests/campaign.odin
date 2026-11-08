@@ -33,7 +33,7 @@ campaign_rules :: proc(t: ^testing.T) {
 	testing.expect_value(t, game.shields, 4) // grace period prevents repeated hits
 	append(&game.pickups, game.Pickup{position = game.shipPosition + {20, 20}})
 	game.step_game(0, {})
-	testing.expect_value(t, game.weapon_timer, f32(10))
+	testing.expect_value(t, game.weapon_timer, f32(7))
 	clear(&game.lasers);game.fire_timer = 0
 	game.step_game(0, {fire = true})
 	testing.expect_value(t, len(game.lasers), 3)
